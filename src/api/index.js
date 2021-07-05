@@ -58,4 +58,6 @@ export default async function getData() {
   } catch (errors) {
     console.log(errors);
   }
+
+  return vehicles;
 }
