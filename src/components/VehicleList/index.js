@@ -18,7 +18,7 @@ export default function VehicleList() {
   return (
     <div data-testid="results" id="vehicle-list">
       <div className="row">
-        {vehicles.filter(v => v.price).map((v) => (
+        {vehicles.length > 0 && vehicles.filter((v) => v.price).map((v) => (
           <div key={`Jaguar-${v.id}`} className="column">
             <VehicleCard
               name={v.id}
