@@ -1,35 +1,36 @@
 import React from 'react';
 import VehicleImage from './vehicle-image';
 
-const VehicleCard = ({
-  name,
-  media,
-  price,
-  description
-}) => (
-  <div className="card">
-    <VehicleImage
-      name={name}
-      media={media}
-    />
-    <div className="card__body">
-      <h1 className="card__title">
-        {`Jaguar ${name.toUpperCase()}`}
-      </h1>
-      <p className="card__price">
-        {price ? (
-          `From ${price}`
-        ) : (
-          'TBA'
+function VehicleCard({
+  name, media, price, description
+}) {
+  return (
+    <div className="card" data-testid="vehicle-card">
+      <VehicleImage
+        name={name}
+        media={media}
+      />
+      <div className="card__body">
+        {name && (
+        <h1 className="card__title" data-testid="vehicle-card--title">
+          {`Jaguar ${name}`}
+        </h1>
         )}
-      </p>
-      <p className="card__copy">
-        {description || (
-          'Coming Soon'
+        {price && (
+        <p className="card__price" data-testid="vehicle-card--price">
+          From
+          {' '}
+          {price}
+        </p>
         )}
-      </p>
+        {description && (
+        <p className="card__copy" data-testid="vehicle-card--description">
+          {description}
+        </p>
+        )}
+      </div>
     </div>
-  </div>
-);
+  );
+}
 
 export default VehicleCard;
